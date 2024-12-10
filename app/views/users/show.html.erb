@@ -1,8 +1,17 @@
+<h1>User info</h1>
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <h3>Name<%= @user.name %></h3>
-  <h3>Introduction<%= @user.introduction %></h3>
-  <% if @user == current_user %>
-    <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
-  <% end %>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td>Introduction</td>
+      <td><%= @user.introduction %></td>
+    </tr>
+  </table>
+      <% if @user == current_user %>
+        <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
+      <% end %>
 </div>
