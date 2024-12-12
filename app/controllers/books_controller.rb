@@ -13,7 +13,6 @@ class BooksController < ApplicationController
     else
       @books = Book.all
       @user = current_user
-      flash[:alert] = "errors prohibited this obj from being saved:"
       render :index
     end
   end
@@ -40,7 +39,6 @@ class BooksController < ApplicationController
     flash[:notice] = "You have updated book successfully."
     redirect_to book_path(@book.id)
     else
-    flash[:alert] = "errors prohibited this obj from being saved:"
     render :edit
     end
   end
