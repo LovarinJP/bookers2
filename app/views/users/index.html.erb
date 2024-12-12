@@ -19,7 +19,7 @@
           <tr>
             <td><%= image_tag user.get_profile_image(100, 100) %></td>
             <td><%= user.name %></td>
-            <td><%= link_to "show", user_path(user.id) %></td>
+            <td class="right"><%= link_to "show", user_path(user.id) %></td>
           </tr>
         <% end %>
         </tbody>
@@ -28,3 +28,14 @@
   </div>
 </div>
 
+<style>
+  table {
+    width: 100% ;
+  }
+
+  tr {
+    border-top: 1px solid ;
+    border-color: #dcdcdc ;
+  }
+
+</style>

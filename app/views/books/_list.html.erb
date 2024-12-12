@@ -12,7 +12,9 @@
     </tr>
   </table>
       <% if @user == current_user %>
-        <p><%= link_to "Edit", edit_user_path(@user.id) %></p>
+        <%= link_to edit_user_path(@user.id), class: "btn btn-block btn-outline-dark btn-light" do%>
+          <i class="fa-solid fa-user-plus"></i>
+        <% end %>
       <% end %>
 </div>
 
