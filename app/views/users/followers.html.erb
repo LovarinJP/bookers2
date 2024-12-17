@@ -1,32 +1,34 @@
-<div class="container px5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
-      <%= render 'books/list', user: @user, current_user: current_user, book: @book %>
-    </div>
-    <div class="col-md-8 offset-md-1">
-      <h1>Users</h1>
+<h1>Followers</h1>
       <table>
         <thead>
           <tr>
             <th>Image</th>
             <th>Name</th>
-            <th colspan="1"></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
-
         <tbody>
-        <% @users.each do |user| %>
+        <% @user.each do |user| %>
           <tr>
-            <td><%= image_tag user.get_profile_image(100, 100) %></td>
-            <td><%= user.name %></td>
             <td>
-              <%= link_to follows_user_path(user) do %>
-                <p>フォロー数: <%= user.followers.count %></p>
+              <%= link_to user_path(user) do %>
+                <%= image_tag user.get_profile_image(100, 100) %>
               <% end %>
             </td>
-            <td>フォロワー数: <%= user.followeds.count %></td>
+            <td><%= user.name %></td>
             <td>
-              <% if current_user.id != user.id %>
+            <%= link_to follows_user_path(user) do %>
+              <p>フォロー数: <%= user.followers.count %></p>
+            <% end %>
+            </td>
+            <td>
+              <%= link_to followers_user_path(user) do %>
+                <p>フォロワー数: <%= user.followeds.count %></p>
+              <% end %>
+            </td>
+            <td>
+              <% if current_user != user %>
                 <% if current_user.following?(user) %>
                   <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class: "btn btn-primary" %>
                 <% else %>
@@ -39,18 +41,3 @@
         <% end %>
         </tbody>
       </table>
-    </div>
-  </div>
-</div>
-
-<style>
-  table {
-    width: 100% ;
-  }
-
-  tr {
-    border-top: 1px solid ;
-    border-color: #dcdcdc ;
-  }
-
-</style>
