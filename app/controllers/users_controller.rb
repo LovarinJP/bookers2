@@ -41,6 +41,8 @@ class UsersController < ApplicationController
     @user = user.follower_users
   end
 
+
+
   private
 
   def user_params
