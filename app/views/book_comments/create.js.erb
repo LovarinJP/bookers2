@@ -1,0 +1,3 @@
+$(".form").val("")
+$(".count").html("<%= j(render 'book_comments/count', book: @comment.book) %>")
+$(".index").html("<%= j(render 'book_comments/index', book: @comment.book) %>")
