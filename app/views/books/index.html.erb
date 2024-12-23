@@ -4,7 +4,8 @@
       <%= render 'list', book: @book, user: @user, current_user: current_user %>
     </div>
     <div class="col-md-8 offset-md-1">
-      <%= render 'index', books: @books %>
+      <h1>Books</h1>
+      <%= render 'book_index', books: @books %>
     </div>
   </div>
 </div>
