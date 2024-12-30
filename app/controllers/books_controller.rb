@@ -31,6 +31,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    #閲覧数を増やす
+    @book.increment!(:view_count)
     @new = Book.new
     @user = @book.user
     @book_comment = BookComment.new
